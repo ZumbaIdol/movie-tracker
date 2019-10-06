@@ -4,7 +4,7 @@ class MoviesController < ApplicationController
   get '/movies' do 
       if logged_in?
           @user = current_user
-          @posts = current_user.movies
+          @movies = current_user.movies
           
           erb :'movies/index'
       else
