@@ -6,7 +6,7 @@
     <% end %>
 <% end %>
 
-<form method="POST" action="/users">
+<form method="POST" action="/users/new">
     <label for="name">Name: </label>
     <input name="name" id="name" type="text" value="<%= @user ? @user.name : ""%> "/>
     <label for="email">Email: </label>
