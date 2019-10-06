@@ -6,3 +6,7 @@ end
 
 run ApplicationController
 use MovieTrackeRsController
+# use Rack::MethodOverride
+use SessionsController
+# use Rack::Flash
+
