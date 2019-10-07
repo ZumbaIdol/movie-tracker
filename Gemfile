@@ -12,7 +12,6 @@ gem 'pry'
 gem 'bcrypt'
 gem 'tux'
 gem 'solargraph'
-gem 'rack-flash'
 
 group :test do
   gem 'rspec'
@@ -20,3 +19,5 @@ group :test do
   gem 'rack-test'
   gem 'database_cleaner', git: 'https://github.com/bmabey/database_cleaner.git'
 end
+
+gem "rack-flash3", "~> 1.0"
