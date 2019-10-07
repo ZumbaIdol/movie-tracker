@@ -20,3 +20,8 @@ movie_list.each do |title, category, rating|
   Movie.create( title: title, category: category, rating: rating )
   end
 end
+
+# User.create("Jiminy Cricket", "jiminy@mail.com", "abc123")
+# User.create("Peter Pan", "ppan@mail.com", "123abc")
+# Movie.create("Spaceballs", "Comedy", "PG")
+# Movie.create("So I Married an Axe Murderer", "Comedy/Horror", "PG-13")
