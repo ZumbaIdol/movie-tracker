@@ -7,12 +7,12 @@
 <% end %>
 
 <form method="POST" action="/users/new">
-    <label for="name">Name: </label>
+    <label for="name">Name:</label>
     <input name="name" id="name" type="text" value="<%= @user ? @user.name : ""%> "/>
-    <label for="email">Email: </label>
+    <label for="email">Email:</label>
 
     <input name="email" id="email" type="text" value="<%= @user ? @user.email : ""%> "/>
-    <label for="password">Password: </label>
+    <label for="password">Password:</label>
     <input name="password" id="password" type="password">
     <input type="submit">
 </form>

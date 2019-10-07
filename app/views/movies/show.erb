@@ -1,1 +1,10 @@
-<h1>This is the show page for an individual instance of your model.</h1>
+<!--h1>This is the show page for an individual instance of your model.</h1-->
+
+<h2>Title: <%= @movie.title %></h2>
+  <p>Category: <%= @movie.category %></p>
+    <p>Rating: <%= @movie.rating %></p>
+  <p><a href="/movies/<%= @movie.id %>/edit">Edit</a></p>
+<form method="POST" action="/movies/<%= @movie.id %>">
+  <input type="hidden"  name="_method" value="delete" />
+  <input type="submit" value="Delete" />
+  </form>

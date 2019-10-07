@@ -1,1 +1,16 @@
-<h1>This is the Model's index page.</h1>
+<!--h1>This is the Model's index page.</h1-->
+
+<% if flash.has?(:err) %>
+    <h3 style="color: red;"><%= flash[:err] %></h3>
+<% end %>
+
+<% if @user %>
+    <h1>Welcome <%= @user.name %>. Here are all your movies</h1>
+<% else %>
+    <h2>Here are movies from all users</h2>
+<% end %>
+
+
+<% @movies.each do |movie| %>
+    <h2><a href="/posts/<%= movie.id %>"><%= movie.title %></a></h2>
+<% end %>
