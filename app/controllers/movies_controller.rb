@@ -65,20 +65,20 @@ class MoviesController < ApplicationController
       if @movie
           erb :'movies/show'
       else
-          redirect "movies"
+          redirect "movies/index"
       end
   end
 
   #create
   post "/movies" do
       # uses ActiveRecord associations to simultaneously
-      # create the new post and push it into the current_user's
-      # collection of posts
+      # create the new movie and push it into the current_user's
+      # collection of movies
       @movie = current_user.movies.build(params)
       
       # triggers ActiveRecord validations on .save
       # returns boolean to indicate whether or not passed 
-      # validatoins and saved successfully
+      # validations and saved successfully
       if @movie.save
           redirect "/movies"
       else
