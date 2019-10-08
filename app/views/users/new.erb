@@ -1,10 +1,10 @@
 <h1> Sign up for a Movie Tracker Account</h1>
 
-<% if @user && @user.errors %>
+<!--% if @user && @user.errors %>
     <% @user.errors.full_messages.each do |msg| %>
         <p style="color: red;"><%= msg %></p>
     <% end %>
-<% end %>
+<% end %-->
 
 <form method="POST" action="/users/new">
     <label for="name">Name:</label>

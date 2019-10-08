@@ -11,7 +11,6 @@ gem 'shotgun'
 gem 'pry'
 gem 'bcrypt'
 gem 'tux'
-gem 'solargraph'
 
 group :test do
   gem 'rspec'
@@ -20,4 +19,4 @@ group :test do
   gem 'database_cleaner', git: 'https://github.com/bmabey/database_cleaner.git'
 end
 
-gem "rack-flash3", "~> 1.0"
+# gem "rack-flash3", "~> 1.0"
