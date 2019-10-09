@@ -1,7 +1,7 @@
 class MoviesController < ApplicationController
    
   #index
-  get '/movies' do 
+  get '/movies/new' do 
       if logged_in?
           @user = current_user
           @movies = current_user.movies

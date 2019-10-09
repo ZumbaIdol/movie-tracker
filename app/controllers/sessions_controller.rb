@@ -4,6 +4,10 @@ get '/login' do
   erb :'sessions/login'
 end
 
+get '/sessions' do
+  "Hello World"
+end
+
 post '/sessions' do
   user = User.find_by(email: params[:email])
 
