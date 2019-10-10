@@ -8,7 +8,7 @@ use Rack::MethodOverride
 use UsersController
 use MoviesController
 use SessionsController
-# use Rack::Flash
+use Rack::Flash
 run ApplicationController
 
 
