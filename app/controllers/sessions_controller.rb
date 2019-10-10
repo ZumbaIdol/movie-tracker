@@ -13,7 +13,7 @@ post '/sessions' do
 
   if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect '/show'
+      redirect '/movies'
   else
       redirect '/login'
   end

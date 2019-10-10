@@ -4,12 +4,12 @@ class UsersController < ApplicationController
         erb :'users/new'
     end
   
-    post '/users/new' do 
+    post '/signup' do 
         @user = User.new(params)
   
         if @user.save
             session[:user_id] = @user.id
-            redirect "/movies/index"
+            redirect "/movies"
         else
             erb  :"/users/new"
         end

@@ -1,7 +1,7 @@
 class MoviesController < ApplicationController
    
   #index
-  get '/movies/new' do 
+  get '/movies' do 
       if logged_in?
           @user = current_user
           @movies = current_user.movies
@@ -25,8 +25,7 @@ class MoviesController < ApplicationController
 
   #new
   get "/movies/new" do 
-      @users = User.all
-      erb :' movies/new'
+      erb :'movies/new'
   end
   
   #edit
