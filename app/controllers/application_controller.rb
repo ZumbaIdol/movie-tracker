@@ -7,7 +7,7 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
     enable :sessions
     set :session_secret, "secret"
-    use Rack::Flash
+    use Rack::Flash, :sweep => true #removes stale entries even if never accessed
   end
 
   get "/" do
