@@ -11,6 +11,10 @@ class ApplicationController < Sinatra::Base
     erb :welcome
   end
 
+  post "/signup" do
+    redirect '/movies/index'
+  end
+
   post "/sessions/login" do
     erb :'/movies/index'
   end
