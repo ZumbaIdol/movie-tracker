@@ -13,7 +13,6 @@ class MoviesController < ApplicationController
 
   #new
   get "/movies/new" do 
-    @users = User.all
     erb :'movies/new'
   end
 
@@ -50,6 +49,7 @@ end
  get "/movies/:id/edit" do 
     movie_user = Movie.find_by_id(params[:id]).user
      if movie_user.id == current_user.id
+        @users = User.all
         @movie = Movie.find_by_id(params[:id])
         erb :'movies/edit'
     else 
@@ -83,7 +83,6 @@ end
       else
           redirect '/signup'
       end
-      
   end
 
   #delete
@@ -97,42 +96,4 @@ end
           redirect :'/movies'
       end
   end
-
 end
-
-
-# GET: /movies
-#   get "/movies" do
-#     erb :"/movies/index.html"
-#   end
-
-#   # GET: /movies/new
-#   get "/movies/new" do
-#     erb :"/movies/new.html"
-#   end
-
-#   # POST: /movies
-#   post "/movies" do
-#     redirect "/movies"
-#   end
-
-#   # GET: /movies/5
-#   get "/movies/:id" do
-#     erb :"/movies/show.html"
-#   end
-
-#   # GET: /movies/5/edit
-#   get "/movie_tracke_rs/:id/edit" do
-#     erb :"/movies/edit.html"
-#   end
-
-#   # PATCH: /movies/5
-#   patch "/movies/:id" do
-#     redirect "/movies/:id"
-#   end
-
-#   # DELETE: /movies/5/delete
-#   delete "/movies/:id/delete" do
-#     redirect "/movies"
-#   end
-# end

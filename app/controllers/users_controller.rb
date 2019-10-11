@@ -13,6 +13,5 @@ class UsersController < ApplicationController
         else
             erb  :"/users/new"
         end
-  
     end
   end

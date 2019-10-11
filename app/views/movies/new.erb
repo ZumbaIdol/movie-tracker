@@ -10,6 +10,12 @@
     <label for="category">Category:</label>
     <input type="text" name="category" value="<%= @movie ? @movie.category : ""%> "><br><br>
     <label for="rating">Rating:</label>
-    <input type="text" name="rating" value="<%= @movie ? @movie.rating : ""%> "><br><br>
+    <select>
+        <option value="g">G</option>
+        <option value="pg">PG</option>
+        <option value="pg-13">PG-13</option>
+        <option value="r">R</option>
+        <option value="unrated">Unrated</option>
+    </select><br><br>
     <input type="submit" value="Submit">
 </form>
