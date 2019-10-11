@@ -2,15 +2,45 @@ class MoviesController < ApplicationController
    
   #index
   get '/movies' do 
-      if logged_in?
-          @user = current_user
-          @movies = current_user.movies
-          
-          erb :'movies/index'
-      else
-          redirect '/signup'
-      end
+    @movies = Movie.all
+    erb :'movies/index'
   end
+
+  #new
+  get "/movies/new" do 
+    @users = User.all
+    erb :'movies/new'
+  end
+
+  #create
+  post "/movies" do
+    # uses ActiveRecord associations to simultaneously
+    # create the new movie and push it into the current_user's
+    # collection of movies
+    user = User.find_by_id(params[:user_id])
+    @movie = user.movies.build(params)
+    
+    # triggers ActiveRecord validations on .save
+    # returns boolean to indicate whether or not passed 
+    # validations and saved successfully
+    if @movie.save
+        redirect "/movies"
+    else
+        erb :"/movies/new"
+    end
+end
+
+#show
+get '/movies/:id' do
+    @movie = Movie.find_by_id(params[:id])
+
+    if @movie
+        erb :'movies/show'
+    else
+        redirect "/movies/index"
+    end
+end
+
   
   #show_all
   get '/movies/all' do 
@@ -21,11 +51,6 @@ class MoviesController < ApplicationController
           redirect '/signup'
       end
       
-  end
-
-  #new
-  get "/movies/new" do 
-      erb :'movies/new'
   end
   
   #edit
@@ -54,34 +79,6 @@ class MoviesController < ApplicationController
       else
           flash[:err] = "You aren't authorized to modify the selected movie."
           erb :"/movies/index"
-      end
-  end
-
-  #show
-  get '/movies/:id' do
-      @movie = Movie.find_by_id(params[:id])
-
-      if @movie
-          erb :'movies/show'
-      else
-          redirect "movies/index"
-      end
-  end
-
-  #create
-  post "/movies" do
-      # uses ActiveRecord associations to simultaneously
-      # create the new movie and push it into the current_user's
-      # collection of movies
-      @movie = current_user.movies.build(params)
-      
-      # triggers ActiveRecord validations on .save
-      # returns boolean to indicate whether or not passed 
-      # validations and saved successfully
-      if @movie.save
-          redirect "/movies"
-      else
-          erb  :"/movies/new"
       end
   end
 
