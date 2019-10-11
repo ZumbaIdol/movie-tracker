@@ -2,8 +2,13 @@ class MoviesController < ApplicationController
    
   #index
   get '/movies' do 
-    @movies = Movie.all
-    erb :'movies/index'
+    if session["user_id"]
+        @user = current_user
+        @movies = @user.movies
+        erb :'movies/index'
+    else
+        redirect '/login'
+    end
   end
 
   #new
