@@ -1,7 +1,10 @@
 class UsersController < ApplicationController
 
     get '/signup' do 
-        erb :'users/new'
+        if User.find_by(:email => params["email"]) == true
+            redirect '/login'
+        else
+            erb :'users/new'
     end
   
     post '/users' do 
