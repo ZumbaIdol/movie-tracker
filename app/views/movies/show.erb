@@ -3,8 +3,8 @@
 <h2><%= @movie.title %></h2>
   <p><%= @movie.category %></p>
     <p><%= @movie.rating %></p>
-  <!--p><a href="/movies/<%=# @movie.id %>/edit">Edit</a></!--p>
-<form-- method="POST" action="/movies/<%=# @movie.id %>">
+  <a href="/movies/<%= @movie.id %>/edit">Edit</a>
+<form method="POST" action="/movies/<%= @movie.id %>"><br>
   <input id="hidden" type="hidden"  name="_method" value="delete" />
   <input type="submit" value="Delete" />
-  </form-->
+  </form>

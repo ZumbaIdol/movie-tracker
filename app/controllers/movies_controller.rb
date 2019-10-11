@@ -37,10 +37,38 @@ get '/movies/:id' do
     if @movie
         erb :'movies/show'
     else
-        redirect "/movies/index"
+        redirect "/movies"
     end
 end
 
+ #edit
+ get "/movies/:id/edit" do 
+    movie_user = Movie.find_by_id(params[:id]).user
+     if movie_user.id == current_user.id
+        @movie = Movie.find_by_id(params[:id])
+        erb :'movies/edit'
+    else 
+        flash[:err] = "You aren't authorized to modify the selected movie."
+        redirect "/movies"
+    end
+end
+
+ #update
+ patch "/movies/:id" do 
+    movie_user = Movie.find_by_id(params[:id]).user
+    if movie_user.id == current_user.id
+        @movie = Movie.find_by_id(params[:id])
+        params.delete("_method")
+        if @movie.update(title: params[:title], category: params[:category], rating: params[:rating])
+            redirect "/movies/#{@movie.id}"
+        else
+            redirect "/movies/#{@movie.id}/edit"
+        end
+    else
+        flash[:err] = "You aren't authorized to modify the selected movie."
+        erb :"/movies"
+    end
+end
   
   #show_all
   get '/movies/all' do 
@@ -51,35 +79,6 @@ end
           redirect '/signup'
       end
       
-  end
-  
-  #edit
-  get "/movies/:id/edit" do 
-      movie_user = Movie.find_by_id(params[:id]).user
-       if movie_user.id == current_user.id
-          @movie = Movie.find_by_id(params[:id])
-          erb :'movies/edit'
-      else 
-          flash[:err] = "You aren't authorized to modify the selected movie."
-          redirect "/movies"
-      end
-  end
-  
-  #update
-  patch "/movies/:id" do 
-      movie_user = Movie.find_by_id(params[:id]).user
-      if movie_user.id == current_user.id
-          @movie = Movie.find_by_id(params[:id])
-          params.delete("_method")
-          if @movie.update(params)
-              redirect "/movies/#{@movie.id}"
-          else
-              redirect "/movies/#{@movie.id}/edit"
-          end
-      else
-          flash[:err] = "You aren't authorized to modify the selected movie."
-          erb :"/movies/index"
-      end
   end
 
   #delete
