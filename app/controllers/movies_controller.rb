@@ -22,7 +22,7 @@ class MoviesController < ApplicationController
     # uses ActiveRecord associations to simultaneously
     # create the new movie and push it into the current_user's
     # collection of movies
-    user = User.find_by_id(params[:user_id])
+    user = current_user
     @movie = user.movies.build(params)
     
     # triggers ActiveRecord validations on .save
@@ -53,7 +53,7 @@ end
         @movie = Movie.find_by_id(params[:id])
         erb :'movies/edit'
     else 
-        flash[:err] = "You aren't authorized to modify the selected movie."
+        flash[:err] = "You aren't authorized to edit the selected movie."
         redirect "/movies"
     end
 end
@@ -70,7 +70,7 @@ end
             redirect "/movies/#{@movie.id}/edit"
         end
     else
-        flash[:err] = "You aren't authorized to modify the selected movie."
+        flash[:err] = "You aren't authorized to update the selected movie."
         erb :"/movies"
     end
 end
@@ -93,7 +93,7 @@ end
           Movie.destroy(params[:id])
           redirect :'/movies'
       else
-          flash[:err] = "You aren't authorized to modify the selected movie."
+          flash[:err] = "You aren't authorized to delete the selected movie."
           redirect :'/movies'
       end
   end

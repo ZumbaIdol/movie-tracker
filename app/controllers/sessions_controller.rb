@@ -20,6 +20,6 @@ end
 # logout
 get '/logout' do
   session.destroy
-  redirect '/'
+  redirect '/login'
   end
 end
