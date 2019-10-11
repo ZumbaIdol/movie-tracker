@@ -1,13 +1,11 @@
 class SessionsController < ApplicationController
 
-get '/login' do
+# login
+  get '/login' do
   erb :'sessions/login'
 end
 
-get '/sessions' do
-  "Hello World"
-end
-
+# put in session
 post '/sessions' do
   user = User.find_by(email: params[:email])
 
@@ -19,8 +17,9 @@ post '/sessions' do
   end
 end
 
+# logout
 get '/logout' do
   session.destroy
-  redirect '/login'
+  redirect '/'
   end
 end
