@@ -4,6 +4,7 @@
   <p><%= @movie.category %></p>
     <p><%= @movie.rating %></p>
   <a href="/movies/<%= @movie.id %>/edit">Edit</a>
+  <a href="movies">My Movies</a>
 <form method="POST" action="/movies/<%= @movie.id %>"><br>
   <input id="hidden" type="hidden"  name="_method" value="delete" />
   <input type="submit" value="Delete" />

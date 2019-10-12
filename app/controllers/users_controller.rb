@@ -5,6 +5,7 @@ class UsersController < ApplicationController
             redirect '/login'
         else
             erb :'users/new'
+        end
     end
   
     post '/users' do 
