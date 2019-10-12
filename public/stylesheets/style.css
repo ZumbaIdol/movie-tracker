@@ -37,7 +37,8 @@
   h1 {
     font-size: 36px;
     line-height: 54px;
-  }
+  } 
+}
 
   h2 {
     border-bottom: 2px solid #ccc;
@@ -85,7 +86,6 @@
     margin-top: 20px;
     padding-top: 20px;
   }
-}
 
 @media screen and (max-width: 600px) {
   .wrapper {
