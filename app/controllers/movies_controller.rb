@@ -64,7 +64,7 @@ end
     if movie_user.id == current_user.id
         @movie = Movie.find_by_id(params[:id])
         params.delete("_method")
-        if @movie.update(title: params[:title], category: params[:category], rating: params[:rating])
+        if @movie.update(title: params[:title], category: params[:category], rating: params[:rating], my_rating: params[:my_rating])
             redirect "/movies/#{@movie.id}"
         else
             redirect "/movies/#{@movie.id}/edit"
