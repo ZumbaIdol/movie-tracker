@@ -1,8 +1,11 @@
 <!--h1>This is the show page for an individual instance of your model.</h1-->
 
 <h2><%= @movie.title %></h2>
+<label for="category">Category: </label>
   <p><%= @movie.category %></p>
+  <label for="rating">Rating: </label>
   <p><%= @movie.rating %></p>
+  <label for="my_rating">My Rating: </label>
   <p><%= @movie.my_rating %></p>
   <a href="/movies/<%= @movie.id %>/edit">Edit</a><br><br>
   <a href="/movies">My Movies</a>
