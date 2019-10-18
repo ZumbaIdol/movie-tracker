@@ -1,7 +1,6 @@
 <!--h1>Insert the form to edit an instance of your model here.</h1-->
-
-<h1> Edit a Movie</h1>
-<a href="/movies">My Movies</a><br><br>
+<div class="typewriter">
+<div class="typewriter-text"><h1> Edit a Movie</h1></div>
 <form method="POST" action="/movies/<%= @movie.id %>">
     <input type="hidden" id="hidden" name="_method" value="PATCH">
     <label for="title">Title:</label>
@@ -31,5 +30,7 @@
         <option value="meh">meh</option>
         <option value="garbage">HOT GARBAGE!!!</option>
     </select><br><br>
+    <a href="/movies">My Movies</a><br><br>
     <input type="Submit">
+    </div>
 </form>

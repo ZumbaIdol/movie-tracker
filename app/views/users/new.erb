@@ -1,4 +1,5 @@
-<h1> Sign up for a Movie Tracker Account</h1>
+<div class="typewriter">
+<div class="typewriter-text"><h1>Sign up for a Movie Tracker Account</h1></div>
 
 <% if @user && @user.errors %>
     <% @user.errors.full_messages.each do |msg| %>
@@ -17,3 +18,4 @@
     <input name="password" id="password" type="password"><br><br>
     <input type="submit">
 </form>
+</div>
