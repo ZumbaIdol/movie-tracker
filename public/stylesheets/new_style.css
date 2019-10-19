@@ -13,7 +13,7 @@
 
   /* --- Welcome Page Styles --- */
   body {
-    background-image: url('../images/marvel.gif');
+    background-image: url('../images/marvel_wallpaper_by_the_light_source_d64hmje.png');
     background-repeat: no-repeat;
     background-attachment: fixed;  
     background-size: cover; 
@@ -32,7 +32,7 @@
     max-width: 960px;
     padding: 2.25%; /* 18px / 800px */
     width: 85%;
-    opacity: 0.8;
+    opacity: 0.7;
   }
 
   .typewriter {
