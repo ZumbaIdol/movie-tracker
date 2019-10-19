@@ -11,6 +11,16 @@ class MoviesController < ApplicationController
     end
   end
 
+  #show_all
+  get '/movies/all' do 
+    if logged_in?
+        @movies = Movie.all
+        erb :'movies/index'
+    else
+        redirect '/signup'
+    end
+end
+
   #new
   get "/movies/new" do 
     erb :'movies/new'
@@ -21,7 +31,7 @@ class MoviesController < ApplicationController
     # uses ActiveRecord associations to simultaneously
     # create the new movie and push it into the current_user's
     # collection of movies
-    user = current_user
+    user = User.find_by_id(session[:user_id])
     @movie = user.movies.build(params)
     
     # triggers ActiveRecord validations on .save
@@ -75,16 +85,6 @@ end
     end
 end
   
-  #show_all
-  get '/movies/all' do 
-      if logged_in?
-          @movies = Movie.all
-          erb :'movies/index'
-      else
-          redirect '/signup'
-      end
-  end
-
   #delete
   delete '/movies/:id' do
       movie_user = Movie.find_by_id(params[:id]).user

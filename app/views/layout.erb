@@ -18,9 +18,10 @@
     <nav>
       <ul>
         <% if logged_in? %> 
-          <li><a href="/logout">Logout</a></li><br>
-          <li><a href="/movies/new">Create a new movie</a></li>
-          <li></li>
+            <li><a href="/movies/all">All Movies</a></li><br>
+            <li><a href="/movies">My Movies</a></li><br>
+            <li><a href="/movies/new">Create a Movie</a></li><br>
+            <li><a href="/logout">Logout</a></li><br>
         <% else %>
           <li><a href="/signup">Sign Up</a></li><br>
           <li><a href="/login">Login</a></li>

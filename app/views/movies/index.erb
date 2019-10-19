@@ -6,9 +6,11 @@
 
 <% if @user %>
     <div class="typewriter">
-    <div class="typewriter-text"><h1>Welcome <%= @user.name %>. Your movies...</h1></div>
+    <div class="typewriter-text"><h1>Welcome, <%= @user.name %>. Your movie list:</h1></div>
 <% else %>
-    <div class="typewriter-text"><h2>Here"s all users' movies</h2></div>
+    <div class="typewriter">
+    <div class="typewriter-text"><h2>All Users' Movies:</h2></div>
+</div>
 <% end %>
 
 
