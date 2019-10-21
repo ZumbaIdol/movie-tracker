@@ -81,7 +81,7 @@ end
         end
     else
         flash[:err] = "You aren't authorized to update the selected movie."
-        erb :"/movies"
+        redirect '/movies'
     end
 end
   
